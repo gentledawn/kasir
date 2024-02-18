@@ -2,17 +2,27 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::middleware(['guest'])->group(function () {
+    Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+});
 
-Route::get('/', [HomeController::class, 'index']);
+Route::middleware(['auth', 'role:admin,kasir'])->group(function () {
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+});
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/user', [UserController::class, 'user'])->name('user');
+    Route::post('/user/store', [UserController::class, 'store']);
+    Route::post('/user/update/{id}', [UserController::class, 'update']);
+    Route::post('/user/destroy/{id}', [UserController::class, 'destroy']);
+});
+
+Route::middleware(['auth', 'role:admin,kasir'])->group(function () {
+    Route::get('/transaksi', [UserController::class, 'transaksi'])->name('transaksi');
+});
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
