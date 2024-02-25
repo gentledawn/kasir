@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\JenisBarangController;
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
@@ -22,7 +23,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:admin,kasir'])->group(function () {
-    Route::get('/transaksi', [UserController::class, 'transaksi'])->name('transaksi');
+    Route::get('/jenis-barang', [JenisBarangController::class, 'jenisBarang'])->name('jenis-barang');
+    Route::post('/jenis-barang/store', [JenisBarangController::class, 'store']);
+    Route::post('/jenis-barang/update/{id}', [JenisBarangController::class, 'update']);
+    Route::post('/jenis-barang/destroy/{id}', [JenisBarangController::class, 'destroy']);
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

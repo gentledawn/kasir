@@ -53,7 +53,9 @@
         }
       }
     </style>
-  <script defer="defer" src="/assets/main.js"></script><link href="/assets/style.css" rel="stylesheet"></head>
+    <script defer="defer" src="/assets/main.js"></script>
+    <link href="/assets/style.css" rel="stylesheet">
+  </head>
   <body class="app">
 
     <div id="loader">
@@ -125,7 +127,7 @@
                   <a class="sidebar-link" href="/user">Data User</a>
                 </li>
                 <li>
-                  <a class="sidebar-link" href="#">Data Jenis Barang</a>
+                  <a class="sidebar-link" href="/jenis-barang">Data Jenis Barang</a>
                 </li>
                 <li>
                   <a class="sidebar-link" href="#">Data Barang</a>
@@ -236,5 +238,15 @@
         </footer>
       </div>
     </div>
+
+    <script>
+      setTimeout(() => {
+        const alert = document.querySelector('.alert');
+        if (alert) {
+          alert.parentNode.removeChild(alert);
+        }
+      }, 4000);
+    </script>
+
   </body>
 </html>

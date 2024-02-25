@@ -1,15 +1,17 @@
 @extends('layout.layout')
 @section('content')
-<div class="d-flex justify-content-between mb-3">
-<h2 class="mb-0">Data User</h2>
-<button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#addUserModal">Add New User</button>
-</div>
 @if (session('status'))
-<div class="alert alert-info alert-dismissible fade show mb-3" role="alert">
-  <span class="fw-bold">{{ session('status') }}</span>
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<div class="position-absolute" style="left:calc(50% - 10rem);top:5rem;width:20rem">
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+      <span class="fw-bold">{{ session('status') }}</span>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 </div>
 @endif
+<div class="d-flex justify-content-between mb-3">
+<h2 class="mb-0">Data User</h2>
+<button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="ti-plus"></i> Tambah User</button>
+</div>
 <div class="table-responsive">
 
         <!-- User Table -->
@@ -31,8 +33,8 @@
                   <td>{{ $user->email }}</td>
                   <td>{{ $user->role }}</td>
                   <td>
-                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal{{ $user->id }}">Edit</button>
-                    <button type="button" class="btn btn-danger btn-sm text-white" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal{{ $user->id }}">Delete</button>
+                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal{{ $user->id }}"><i class="ti-pencil-alt"></i> Edit</button>
+                    <button type="button" class="btn btn-danger btn-sm text-white" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal{{ $user->id }}"><i class="ti-trash"></i> Delete</button>
                   </td>
                 </tr>
               @endforeach
@@ -70,7 +72,7 @@
                                     <option value="kasir">Kasir</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary text-white">Submit</button>
+                            <button type="submit" class="btn btn-primary text-white"><i class="ti-arrow-circle-right"></i> Submit</button>
                         </form>
                         <!-- End Add User Form -->
                     </div>
@@ -111,7 +113,7 @@
                                     <option value="kasir" @if($user->role=='kasir') selected @endif>Kasir</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary text-white">Submit</button>
+                            <button type="submit" class="btn btn-primary text-white"><i class="ti-arrow-circle-right"></i> Submit</button>
                         </form>
                         <!-- End Edit User Form -->
                     </div>
@@ -127,17 +129,17 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Deletion</h5>
+                        <h5 class="modal-title" id="confirmDeleteModalLabel">Konfirmasi Hapus</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to delete this user?</p>
+                        <p>Yakin ingin menghapus user ini?</p>
                     </div>
                     <div class="modal-footer">
                       <form method="post" action="/user/destroy/{{ $user->id }}">
                         @csrf
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-danger text-white">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="ti-close"></i> Batal</button>
+                        <button type="submit" class="btn btn-danger text-white"><i class="ti-trash"></i> Hapus</button>
                       </form>
                     </div>
                 </div>
