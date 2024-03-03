@@ -79,7 +79,7 @@
           <div class="sidebar-logo">
             <div class="peers ai-c fxw-nw">
               <div class="peer peer-greed">
-                <a class="sidebar-link td-n" href="/">
+                <a class="sidebar-link td-n" href="/dashboard">
                   <div class="peers ai-c fxw-nw">
                     <div class="peer">
                       <div class="logo">
@@ -105,7 +105,7 @@
           <!-- ### $Sidebar Menu ### -->
           <ul class="sidebar-menu scrollable pos-r">
             <li class="nav-item mT-30 actived">
-              <a class="sidebar-link" href="/">
+              <a class="sidebar-link" href="/dashboard">
                 <span class="icon-holder">
                   <i class="c-blue-500 ti-home"></i>
                 </span>
@@ -130,7 +130,7 @@
                   <a class="sidebar-link" href="/jenis-barang">Data Jenis Barang</a>
                 </li>
                 <li>
-                  <a class="sidebar-link" href="#">Data Barang</a>
+                  <a class="sidebar-link" href="/barang">Data Barang</a>
                 </li>
               </ul>
             </li>
