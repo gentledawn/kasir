@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-        $data = array(
-            'title' => 'Home Page'
-        );
-
-        return view('index',$data);
+        if (Auth::check()) {
+            return redirect('/dashboard');
+        }
     }
 }

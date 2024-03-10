@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <title>{{ $title ?? 'Sistem Kasir' }}</title>
+    <title>{{ $title . ' - Sistem Kasir' ?? 'Sistem Kasir' }}</title>
 
     <style>
       #loader {
@@ -115,7 +115,7 @@
             <li class="nav-item dropdown">
               <a class="dropdown-toggle" href="javascript:void(0);">
                 <span class="icon-holder">
-                  <i class="c-orange-500 ti-layout-list-thumb"></i>
+                  <i class="c-orange-500 ti-view-list-alt"></i>
                 </span>
                 <span class="title">Data Master</span>
                 <span class="arrow">
@@ -135,9 +135,9 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="sidebar-link" href="#">
+              <a class="sidebar-link" href="/diskon">
                 <span class="icon-holder">
-                  <i class="c-indigo-500 ti-bar-chart"></i>
+                  <i class="c-indigo-500 ti-money"></i>
                 </span>
                 <span class="title">Setting Diskon</span>
               </a>
@@ -145,7 +145,7 @@
             <li class="nav-item">
               <a class="sidebar-link" href="#">
                 <span class="icon-holder">
-                  <i class="c-deep-orange-500 ti-calendar"></i>
+                  <i class="c-deep-orange-500 ti-bar-chart"></i>
                 </span>
                 <span class="title">Data Laporan</span>
               </a>
@@ -153,7 +153,7 @@
             <li class="nav-item">
               <a class="sidebar-link" href="#">
                 <span class="icon-holder">
-                  <i class="c-light-blue-500 ti-pencil"></i>
+                  <i class="c-light-blue-500 ti-wallet"></i>
                 </span>
                 <span class="title">Data Transaksi</span>
               </a>
@@ -193,28 +193,28 @@
                     <span class="fsz-sm c-grey-900">John Doe</span>
                   </div>
                 </a>
-                <ul class="dropdown-menu fsz-sm">
+                <ul class="dropdown-menu fsz-sm me-3">
                   <li>
                     <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                       <i class="ti-settings mR-10"></i>
-                      <span>Setting</span>
+                      <span>Pengaturan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/profil" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                      <i class="ti-user mR-10"></i>
+                      <span>Profil</span>
                     </a>
                   </li>
                   <li>
                     <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-                      <i class="ti-user mR-10"></i>
-                      <span>Profile</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="email.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                       <i class="ti-email mR-10"></i>
-                      <span>Messages</span>
+                      <span>Pesan</span>
                     </a>
                   </li>
                   <li role="separator" class="divider"></li>
                   <li>
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i> Logout</a>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i> Keluar</a>
                     <form id="logout-form" action="{{ url('/logout') }}" method="post" style="display: none;">
                       @csrf
                     </form>

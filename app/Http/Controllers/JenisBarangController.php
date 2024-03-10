@@ -9,7 +9,7 @@ class JenisBarangController extends Controller
 {
     public function jenisBarang()
     {
-        return view('admin.master.jenis-barang.data', array( 'title' => 'Data Jenis Barang - Sistem Kasir', 'jenis_barang' => JenisBarang::all() ));
+        return view('admin.master.jenis-barang.data', array( 'title' => 'Data Jenis Barang', 'jenis_barang' => JenisBarang::all() ));
     }
 
     public function store(Request $request)
@@ -24,10 +24,9 @@ class JenisBarangController extends Controller
     public function update(Request $request, $id)
     {
         JenisBarang::where('id', $id)
-            -> where('id', $id)
-                ->update([
-                    'nama_jenis' => $request->nama_jenis
-                ]);
+            ->update([
+                'nama_jenis' => $request->nama_jenis
+            ]);
 
         return redirect('/jenis-barang')->with('status', 'Data Berhasil Diubah');
     }

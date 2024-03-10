@@ -16,7 +16,7 @@ class Diskon extends Migration
         Schema::create('kasir_diskon', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('total_belanja');
-            $table->integer('diskon')->nullable();
+            $table->decimal('diskon', 5, 2)->nullable();
             $table->timestamps();
         });
     }

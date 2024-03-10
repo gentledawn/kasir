@@ -9,7 +9,7 @@
 </div>
 @endif
 <div class="d-flex justify-content-between mb-3">
-<h2 class="mb-0">Data Jenis Barang</h2>
+<h2 class="mb-0">{{ $title }}</h2>
 <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#tambahJenisBarangModal"><i class="ti-plus"></i> Tambah Jenis Barang</button>
 </div>
 <div class="table-responsive">

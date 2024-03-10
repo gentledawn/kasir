@@ -11,7 +11,7 @@ class BarangController extends Controller
     public function barang()
     {
         return view('admin.master.barang.data', array(
-            'title' => 'Data Barang - Sistem Kasir',
+            'title' => 'Data Barang',
             'jenis_barang' => JenisBarang::all(),
             'data_barang' => Barang::join('kasir_jenis_barang', 'kasir_jenis_barang.id', '=', 'kasir_barang.id_jenis')
                               ->select('kasir_barang.*', 'kasir_jenis_barang.nama_jenis')
@@ -34,13 +34,12 @@ class BarangController extends Controller
     public function update(Request $request, $id)
     {
         Barang::where('id', $id)
-            -> where('id', $id)
-                ->update([
-                    'id_jenis'      => $request->id_jenis,
-                    'nama_barang'   => $request->nama_barang,
-                    'harga'         => $request->harga,
-                    'stok'          => $request->stok,
-                ]);
+            ->update([
+                'id_jenis'      => $request->id_jenis,
+                'nama_barang'   => $request->nama_barang,
+                'harga'         => $request->harga,
+                'stok'          => $request->stok,
+            ]);
 
         return redirect('/barang')->with('status', 'Data Berhasil Diubah');
     }

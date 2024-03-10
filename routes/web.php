@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisBarangController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\DiskonController;
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
@@ -33,6 +35,12 @@ Route::middleware(['auth', 'role:admin,kasir'])->group(function () {
     Route::post('/barang/store', [BarangController::class, 'store']);
     Route::post('/barang/update/{id}', [BarangController::class, 'update']);
     Route::post('/barang/destroy/{id}', [BarangController::class, 'destroy']);
+
+    Route::get('/diskon', [DiskonController::class, 'diskon'])->name('diskon');
+    Route::post('/diskon/update/{id}', [DiskonController::class, 'update']);
+
+    Route::get('/profil', [UserController::class, 'profil'])->name('profil');
+    Route::post('/profil/update/{id}', [UserController::class, 'updateProfil']);
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
