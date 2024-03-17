@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisBarangController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DiskonController;
+use App\Http\Controllers\TransaksiController;
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
@@ -41,6 +42,9 @@ Route::middleware(['auth', 'role:admin,kasir'])->group(function () {
 
     Route::get('/profil', [UserController::class, 'profil'])->name('profil');
     Route::post('/profil/update/{id}', [UserController::class, 'updateProfil']);
+
+    Route::get('/transaksi', [TransaksiController::class, 'transaksi'])->name('transaksi');
+    Route::get('/transaksi/tambah', [TransaksiController::class, 'tambahTransaksi']);
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

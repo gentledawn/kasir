@@ -151,7 +151,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="sidebar-link" href="#">
+              <a class="sidebar-link" href="/transaksi">
                 <span class="icon-holder">
                   <i class="c-light-blue-500 ti-wallet"></i>
                 </span>
@@ -190,7 +190,7 @@
                     <img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/10.jpg" alt="">
                   </div>
                   <div class="peer">
-                    <span class="fsz-sm c-grey-900">John Doe</span>
+                    <span class="fsz-sm c-grey-900">@if(Auth::check()){{ Auth::user()->name }}@endif</span>
                   </div>
                 </a>
                 <ul class="dropdown-menu fsz-sm me-3">
@@ -233,7 +233,7 @@
         </main>
 
         <!-- ### $App Screen Footer ### -->
-        <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
+        <footer class="bdT ta-c p-30 fsz-sm c-grey-600">
           <span>Copyright © 2024 Sistem Kasir. All rights reserved.</span>
         </footer>
       </div>
